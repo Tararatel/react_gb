@@ -3,33 +3,33 @@ import { Button, TextField, List, ListItem, ListItemButton, ListItemText } from 
 import './style.css'
 
 function App() {
+  const [authorList, setAuthorList] = useState([]);
   const [messageList, setMessageList] = useState([]);
+  const [fullList, setFullList] = useState([]);
+
   const [chatList, setChatList] = useState([{id: 1, name: 'Robot'}, {id: 2, name: 'Neo'}]);
   const inputRef = useRef(null);
 
   const submitHandler = (event) => {
     event.preventDefault();
-    const author = document.querySelector('.author');
-    const text = document.querySelector('.text');
 
-    setMessageList(prev => [...prev, {'author': author.value, 'text': text.value, 'index': prev.length}])
+    setFullList(prev => [...prev, {'author': authorList, 'text': messageList, 'index': prev.length}])
   }
   useEffect(() => {
     inputRef.current?.focus();     
     
     if (messageList.length > 0) {
       setTimeout(() => {
-        alert(`Привет, я робот, а ты кожаный мешок. Последний автор: ${messageList[messageList.length - 1].author}`)
+        alert(`Привет, я робот, а ты кожаный мешок. Последний автор: ${authorList[authorList.length - 1].author}`)
       }, 5000);
     }
-  }, [messageList]);
+  }, [authorList]);
 
   return (
-    <div className="App">
-      
+    <div className="App">      
         <form>
-          <input ref={inputRef} variant="standard" id="standard-basic" className="author" type="text" placeholder="Author" />
-          <input variant="standard" id="standard-basic" className="text" type="text" placeholder="Text" />
+          <input ref={inputRef} className="author" type="text" placeholder="Author" value={authorList} onChange={e => setAuthorList(e.target.value)} />
+          <input className="text" type="text" placeholder="Text" value={messageList} onChange={e => setMessageList(e.target.value)}/>
           <Button variant="contained" type="submit" onClick={submitHandler}>Submit</Button>
         </form>
       <div className="wrapper">
@@ -45,8 +45,8 @@ function App() {
         </List>
         </div>
 
-        <ul>{messageList.map((obj, index) => (
-          <li key={index}>
+        <ul>{fullList.map(obj => (
+          <li key={obj.index}>
             {obj.author} - {obj.text}
           </li>
         ) )}
