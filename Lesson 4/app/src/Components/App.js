@@ -1,26 +1,30 @@
-import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
+import { Route, Switch, NavLink, Redirect } from "react-router-dom";
 import Chats from "./Chats/Chats";
 import Main from "./Main/Main";
 import NotFound from "./NotFound/NotFound";
 import Profile from "./Profile/Profile";
+import "../style.css";
+import ChatInfo from "./ChatsInfo/ChatInfo";
 
 function App() {
   return (
     <div className="App">
-      <Router>
-        <div className="nav">
-          <Link to="/">Home Page</Link>
-          <Link to="/profile">Profile</Link>
-          <Link to="/chats">Chats</Link>
-        </div>
+      <div className="nav">
+        <NavLink exact to="/">
+          Home Page
+        </NavLink>
+        <NavLink to="/profile">Profile</NavLink>
+        <NavLink to="/chats">Chats</NavLink>
+      </div>
 
-        <Switch>
-          <Route exact path="/" component={Main} />
-          <Route exact path="/profile" component={Profile} />
-          <Route path="/chats" component={Chats} />
-          <Route component={NotFound} />
-        </Switch>
-      </Router>
+      <Switch>
+        <Route exact path="/" component={Main} />
+        <Route exact path="/profile" component={Profile} />
+        <Route path="/chats" component={Chats} />
+        <Route path="/chats/:chat" component={ChatInfo} />
+        <Redirect to={"/chats"} />
+        <Route component={NotFound} />
+      </Switch>
     </div>
   );
 }

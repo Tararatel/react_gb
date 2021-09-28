@@ -21,3 +21,8 @@ form {
     align-items: center;
     margin-bottom: 20px;
 }
+
+a.active {
+    font-weight: bold;
+    color: red;
+}
