@@ -22,7 +22,7 @@ function App() {
         <Route exact path="/profile" component={Profile} />
         <Route path="/chats" component={Chats} />
         <Route path="/chats/:chat" component={ChatInfo} />
-        <Redirect to={"/chats"} />
+
         <Route component={NotFound} />
       </Switch>
     </div>

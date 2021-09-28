@@ -1,4 +1,4 @@
-import { Link, Route } from "react-router-dom";
+import { Link, Route, Redirect } from "react-router-dom";
 import { useState } from "react";
 import {
   List,
@@ -46,6 +46,7 @@ const Chats = () => {
               setSecondChatList={setSecondChatList}
             />
           </Route>
+          <Redirect to={"/chats"} />
 
           <List>
             {chatList.map((object, index) => (
