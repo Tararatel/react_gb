@@ -9,7 +9,7 @@ const Profile = () => {
   );
 
   const checkboxHandler = (e) => {
-    dispatch(changeCondition(e.target.checked));
+    dispatch(changeCondition());
   };
 
   const clickCondition = (e) => {
