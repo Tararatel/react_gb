@@ -16,10 +16,6 @@ const Profile = () => {
     dispatch(changeCondition());
   };
 
-  const clickCondition = (e) => {
-    e.preventDefault();
-  };
-
   useEffect(() => {
     if (condition) {
       dispatch(botAnswer(condition));

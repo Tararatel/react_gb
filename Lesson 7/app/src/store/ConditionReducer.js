@@ -9,7 +9,6 @@ const ConditionReducer = (state = initialState, { payload, type }) => {
     case CHANGE_CONDITION:
       return {
         ...state,
-        //  profileCondition: payload,
         profileCondition: !state.profileCondition,
       };
     default:
