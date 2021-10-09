@@ -1,0 +1,9 @@
+export const DELETE_CHAT = "DELETE_CHAT";
+export const ADD_CHAT = "ADD_CHAT";
+export const CHANGE_CONDITION = "CHANGE_CONDITION";
+export const MESSAGE_CHAT = "MESSAGE_CHAT";
+export const ADD_NEW_MESSAGE = "ADD_TO_FIRST_CHAT";
+export const GET_HP_PERSONS = "GET_HP_PERSONS";
+export const ADD_HP_PERSONS = "ADD_HP_PERSONS";
+export const CLEAR_HP_PERSONS = "CLEAR_HP_PERSONS";
+export const SPINNER_FLG = "SPINNER_FLG";
